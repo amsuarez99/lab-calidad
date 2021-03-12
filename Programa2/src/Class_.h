@@ -13,31 +13,42 @@ class Class_ {
     Class_() : T(0), B(0), D(0), M(0), A(0), I(0) {};
     int getT(), getB(), getD(), getM(), getA(), getI();
     void incT(), incB(int n), incD(int n), incM(), setA(int n), incI();
-    void printClass();
+    void printClass(ofstream &oFile);
     CLASSTYPE getClassType();
   private:
     int T, B, D, M, A, I;
 };
 
 //.i
-void Class_ :: printClass() {
+void Class_ :: printClass(ofstream &oFile) {
   switch(getClassType()) {
     case BASE:
       cout << "T=" << T << ", ";
+      oFile << "T=" << T << ", ";
       cout << "I=" << I << ", ";
+      oFile << "I=" << I << ", ";
       cout << "B=" << B << ", ";
+      oFile << "B=" << B << ", ";
       cout << "D=" << D << ", ";
+      oFile << "D=" << D << ", ";
       cout << "M=" << M << ", ";
+      oFile << "M=" << M << ", ";
       cout << "A=" << A;
+      oFile << "A=" << A;
       break;
     case NEW:
       cout << "T=" << T << ", ";
+      oFile << "T=" << T << ", ";
       cout << "I=" << I;
+      oFile << "I=" << I;
       break;
     case REUSED:
       cout << "T=" << T << ", ";
+      oFile << "T=" << T << ", ";
       cout << "I=" << I << ", ";
+      oFile << "I=" << I << ", ";
       cout << "B=" << B;
+      oFile << "B=" << B;
       break;
     default:
       break;

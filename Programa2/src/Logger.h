@@ -1,6 +1,7 @@
 //.b=20
 #pragma once
 #include <unordered_map>
+#include <fstream>
 
 class Logger {
   public:
@@ -36,41 +37,58 @@ void Logger :: logErrMess(string msg) {
 void Logger :: logResult(vector<string> classNames, //.m
                          unordered_map<string, Class_*> classMap) {
   Class_* auxClass;
+  ofstream oFile;
+  oFile.open("ConteoLDC.txt");
   cout << "CLASES BASE:" << endl; //.m
+  oFile << "CLASES BASE:" << endl; //.m
+
   for(int i = 0; i < classNames.size(); i++) {
     auxClass = classMap[classNames[i]];
     if(auxClass->getClassType() == BASE) {
       cout << "   " << classNames[i] << ": "; //.m
-      auxClass->printClass();
+      oFile << "   " << classNames[i] << ": "; //.m
+      auxClass->printClass(oFile);
       cout << endl;
+      oFile << endl;
     }
   }
   cout << "--------------------------------------------" << endl;
+  oFile << "--------------------------------------------" << endl;
   cout << "CLASES NUEVAS:" << endl; //.m
+  oFile << "CLASES NUEVAS:" << endl; //.m
   for(int i = 0; i < classNames.size(); i++) {
     auxClass = classMap[classNames[i]];
     if(auxClass->getClassType() == NEW) {
       cout << "   " << classNames[i] << ": ";
-      auxClass->printClass();
+      oFile << "   " << classNames[i] << ": ";
+      auxClass->printClass(oFile);
       cout << endl;
+      oFile << endl;
     }
   }
   cout << "--------------------------------------------" << endl;
+  oFile << "--------------------------------------------" << endl;
   cout << "CLASES REUSADAS:" << endl; //.m
+  oFile << "CLASES REUSADAS:" << endl; //.m
   for(int i = 0; i < classNames.size(); i++) {
     auxClass = classMap[classNames[i]];
     if(auxClass->getClassType() == REUSED) {
       cout << "   " << classNames[i] << ": ";
-      auxClass->printClass();
+      oFile << "   " << classNames[i] << ": ";
+      auxClass->printClass(oFile);
       cout << endl;
+      oFile << endl;
     }
   }
   cout << "--------------------------------------------" << endl;
+  oFile << "--------------------------------------------" << endl;
   cout << "Total de LDC="; //.m
+  oFile << "Total de LDC="; //.m
   int count = 0;
   for(int i = 0; i < classNames.size(); i++) {
     auxClass = classMap[classNames[i]];
     count += auxClass->getT();
   }
   cout << count << endl;
+  oFile << count << endl;
 }
