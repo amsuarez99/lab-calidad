@@ -90,4 +90,5 @@ void Logger :: logResult(vector<string> classNames, //.m
     count += auxClass->getT();
   }
   cout << count << endl;
+  oFile << count << endl;
 }
