@@ -1,6 +1,7 @@
 # Annoying mac
 .DS_Store
 FormatosPSP/
+.vscode/
 
 # Prerequisites
 *.d
