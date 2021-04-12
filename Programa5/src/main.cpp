@@ -1,6 +1,6 @@
-// Descripci√≥n: Calcula la integral de una distribuci√≥n t dada una x y grados de libertad
+// Descripci√≥n: Calcula el valor de x tal que la integración de 0 a x es igual a un valor (p) introducido por el usuario
 // Autor: Adri√°n Marcelo Su√°rez Ponce A01197108
-// Fecha: 27 de marzo de 2021
+// Fecha: 11 de abril de 2021
 
 //.b=78
 #include <iostream>
@@ -37,8 +37,7 @@ void setup(double &pTarget, Calculator &calculator){
 
   do {
     cout << "p?> ";
-    //cin >> input;
-    input = "0.2";
+   cin >> input;
     isValidEntry = true;
 
     for(char c: input) {
@@ -61,8 +60,7 @@ void setup(double &pTarget, Calculator &calculator){
 
   do {
     cout << "dof?> ";
-//    cin >> input;
-    input = "6";
+   cin >> input;
     isValidEntry = true;
 
     for(char c: input) {
@@ -86,6 +84,7 @@ void setup(double &pTarget, Calculator &calculator){
   calculator.setDof(dof);
 }
 
+//.i
 // Funci√≥n: Funcion que contiene los pasos de ejecuci√≥n del programa
 // Par√°metros: calculation <- datos introducidos, calc <- clase que hace los c√°lculos
 // Valor de retorno: void
@@ -105,6 +104,10 @@ void integrate(Calculation &calculation, Calculator &calc) { //.m
   calculation.setP(newRes);
 }
 
+//.i
+// Función que calcula la x dado que la integración de 0 a x = p
+// Par√°metros: pTarget <- p recibida, calc <- calculadora con la que se realizan los cálculos
+// Valor de retorno: Calculation <- datos parseados en una clase
 Calculation calculateX(double const &pTarget, Calculator &calc) {
     double delta = INITX/2;
     Calculation oldCalc, newCalc;
@@ -130,6 +133,7 @@ Calculation calculateX(double const &pTarget, Calculator &calc) {
         oldCalc.setP(newCalc.getP());
         if(oldCalc.getP() < pTarget) {
             delta /= direction ? 1 : 2;
+            newCalc.setX(oldCalc.getX() + delta);
             direction = true;
         } else if(oldCalc.getP() > pTarget) {
             delta /= direction ? 2 : 1;
@@ -157,6 +161,7 @@ void printResult(Calculation &calculation, const int &dof) { //.m
   cout << "  x = " << calculation.getX() << endl; //.m
 }
 
+//.i
 int main() {
   Calculator calculator;
   double pTarget;

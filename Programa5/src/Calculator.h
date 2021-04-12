@@ -7,7 +7,7 @@
 #include <cstdio>
 #define DEBUG 0
 
-class Calculator {
+class Calculator { //.m
   private:
     Calculation calculation; //.m
     int dof;

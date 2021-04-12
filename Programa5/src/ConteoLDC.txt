@@ -1,10 +1,10 @@
 CLASES BASE:
-   main: T=78, I=4, B=24, D=10, M=1, A=64
-   Calculator: T=60, I=5, B=53, D=46, M=2, A=53
+   main: T=105, I=6, B=78, D=0, M=8, A=27
+   Calculator: T=63, I=5, B=60, D=0, M=5, A=3
+   Calculation: T=9, I=0, B=12, D=3, M=3, A=0
 --------------------------------------------
 CLASES NUEVAS:
-   TestCase: T=12, I=0
 --------------------------------------------
 CLASES REUSADAS:
 --------------------------------------------
-Total de LDC=150
+Total de LDC=177
