@@ -1,0 +1,12 @@
+CLASES BASE:
+   main: T=69, I=4, B=129, D=70, M=24, A=10
+   FileReader: T=28, I=5, B=74, D=50, M=1, A=4
+   Calculator: T=105, I=7, B=60, D=0, M=29, A=45
+   HistoricalData: T=89, I=12, B=87, D=10, M=20, A=12
+   Regression: T=92, I=12, B=87, D=0, M=0, A=5
+--------------------------------------------
+CLASES NUEVAS:
+--------------------------------------------
+CLASES REUSADAS:
+--------------------------------------------
+Total de LDC=383
