@@ -1,17 +1,16 @@
-//.b=87
 #pragma once
 #include <numeric>
 #include <vector>
 #include <algorithm>
 #include <utility>
 
-class HistoricalData { //.m
+class HistoricalData {
   private:
     int N;
     double sumXY, sumX2, sumY2, sumX, sumY;
     double difXXavg2, stdev;
     double xAvg, yAvg, x2Avg;
-    vector<pair<double, double> > obs; //.m
+    vector<pair<double, double> > obs;
     double sum(vector<double> v);
 
     void updateMetrics();
@@ -44,8 +43,8 @@ class HistoricalData { //.m
 };
 
 //.i
-HistoricalData :: HistoricalData() { //.m
-  this->N = 0; //.m
+HistoricalData :: HistoricalData() {
+  this->N = 0;
 }
 
 //.i
@@ -55,45 +54,45 @@ double HistoricalData :: sum(vector<double> v) {
 }
 
 //.i
-void HistoricalData::updateSumXY() { //.m
+void HistoricalData::updateSumXY() {
   vector<double> xy;
-  xy.resize(obs.size()); //.m
-  transform(obs.begin(), obs.end(), xy.begin(), [](pair<double, double> p){ return p.first * p.second;} ); //.m
+  xy.resize(obs.size());
+  transform(obs.begin(), obs.end(), xy.begin(), [](pair<double, double> p){ return p.first * p.second;} );
   sumXY = sum(xy);
 }
 
 //.i
-void HistoricalData::updateSumX2() { //.m
+void HistoricalData::updateSumX2() {
   vector<double> x2;
-  x2.resize(obs.size()); //.m
-  transform(obs.begin(), obs.end(), x2.begin(), [](pair<double, double> p){ return p.first * p.first;} ); //.m
+  x2.resize(obs.size());
+  transform(obs.begin(), obs.end(), x2.begin(), [](pair<double, double> p){ return p.first * p.first;} );
   sumX2 = sum(x2);
 }
 
 
 //.i
-void HistoricalData::updateSumY2() { //.m
+void HistoricalData::updateSumY2() {
   vector<double> y2;
-  y2.resize(obs.size()); //.m
-  transform(obs.begin(), obs.end(), y2.begin(), //.m
+  y2.resize(obs.size());
+  transform(obs.begin(), obs.end(), y2.begin(),
       [](pair<double, double> p){ return p.second * p.second;} );
   sumY2 = sum(y2);
 }
 
 //.i
-void HistoricalData::updateSumX() { //.m
+void HistoricalData::updateSumX() {
   vector<double> x;
-  x.resize(obs.size()); //.m
-  transform(obs.begin(), obs.end(), x.begin(), [](pair<double, double> p){ return p.first;}); //.m
+  x.resize(obs.size());
+  transform(obs.begin(), obs.end(), x.begin(), [](pair<double, double> p){ return p.first;});
   sumX = sum(x);
 }
 
 
 //.i
-void HistoricalData::updateSumY() { //.m
+void HistoricalData::updateSumY() {
   vector<double> y;
-  y.resize(obs.size()); //.m
-  transform(obs.begin(), obs.end(), y.begin(), //.m
+  y.resize(obs.size());
+  transform(obs.begin(), obs.end(), y.begin(),
               [](pair<double, double> p){ return p.second; });
   sumY = sum(y);
 }
@@ -132,5 +131,3 @@ void HistoricalData:: addData(pair<double, double> newObs) {
   N = obs.size();
   updateMetrics();
 }
-
-//.d=10

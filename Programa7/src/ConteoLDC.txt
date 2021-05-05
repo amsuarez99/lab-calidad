@@ -1,0 +1,11 @@
+CLASES BASE:
+   main: T=83, I=4, B=69, D=27, M=15, A=41
+   MultipleRegression: T=95, I=11, B=92, D=87, M=0, A=90
+   HistoricalData: T=45, I=6, B=89, D=67, M=6, A=23
+--------------------------------------------
+CLASES NUEVAS:
+--------------------------------------------
+CLASES REUSADAS:
+   FileReader: T=28, I=5, B=28
+--------------------------------------------
+Total de LDC=251

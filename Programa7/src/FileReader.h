@@ -1,4 +1,4 @@
-//.b=74
+//.b=28
 #pragma once
 #include <fstream>
 #include <string>
@@ -25,7 +25,7 @@ FileReader :: FileReader(string fileName) {
 
 //.i
 void FileReader :: openFile() {
-  inputFile.open(this->fileName); //.m
+  inputFile.open(this->fileName);
   if(!inputFile) throw invalid_argument("Error: El archivo no existe");
   if(inputFile.peek() == ifstream::traits_type::eof()) throw invalid_argument("Error: El archivo está vacío");
 }
